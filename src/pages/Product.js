@@ -60,10 +60,15 @@ function Product() {
         }}
       >
         <p>
-          {product.description || 
+          {product.description ||
             "This product is one of our top recommendations for quality and value. " +
             "We handpick the best Amazon products every day to make your shopping experience effortless. " +
             "Click the button below to grab it now!"}
+        </p>
+
+        {/* Affiliate disclosure */}
+        <p style={{ marginTop: "1rem", fontStyle: "italic", fontSize: "0.9rem", color: "#444" }}>
+          This post contains affiliate links.
         </p>
 
         {/* Amazon Button */}
