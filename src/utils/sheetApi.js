@@ -4,7 +4,8 @@ export async function fetchProducts() {
   const url =
     "https://docs.google.com/spreadsheets/d/e/2PACX-1vRY4dXr1U1JwhbQEnxBdcNSIiVNlplHfYrAZ1jAfS6eap3-H1VvkpmoNmi7s0tMAbT1vGwSBhGtWjJW/pub?gid=0&single=true&output=csv";
 
-  const res = await fetch(url); // simple fetch, no timestamp
+  // ✅ Add cache busting
+  const res = await fetch(`${url}?t=${Date.now()}`, { cache: "no-store" });
   const csvText = await res.text();
 
   const parsed = Papa.parse(csvText, { header: true, skipEmptyLines: true });
