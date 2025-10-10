@@ -1,31 +1,43 @@
-import Papa from "papaparse";
-
+// utils/fetchProducts.js
 export async function fetchProducts() {
-  const url =
-    "https://docs.google.com/spreadsheets/d/e/2PACX-1vRY4dXr1U1JwhbQEnxBdcNSIiVNlplHfYrAZ1jAfS6eap3-H1VvkpmoNmi7s0tMAbT1vGwSBhGtWjJW/pub?gid=0&single=true&output=csv";
+  const SHEET_ID = "1sbkKBH-W-jSwr_ib1S6nuQvIcXE-MrbgEOoSmKlkYAU"; // your sheet ID
+  const API_KEY = "AIzaSyAMIHJnHDZwoVJJcY601csW6_Mw5_4TLNA";    // your API key
+  const RANGE = "Sheet1!A:D"; // columns: Amazon Link, Product Name, Description, Slug
 
-  // Add timestamp to bypass browser/edge caching
-  const timestamp = `t=${Date.now()}`;
-  const separator = url.includes("?") ? "&" : "?";
-  const finalUrl = url + separator + timestamp;
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}?key=${API_KEY}`;
 
-  console.log("Fetching CSV from:", finalUrl);
+  try {
+    const res = await fetch(url, { cache: "no-store" }); // no caching
+    if (!res.ok) {
+      console.error("Failed to fetch sheet:", res.status, res.statusText);
+      return [];
+    }
 
-  const res = await fetch(finalUrl, { cache: "no-store" });
-  if (!res.ok) {
-    console.error("Failed to fetch CSV:", res.status, res.statusText);
+    const data = await res.json();
+
+    if (!data.values || data.values.length < 2) return [];
+
+    const [headers, ...rows] = data.values;
+
+    const products = rows.map((row) => {
+      const obj = {};
+      headers.forEach((header, index) => {
+        obj[header] = row[index] || "";
+      });
+      return {
+        affiliate_link: obj["Amazon Link"],
+        name: obj["Product Name"],
+        description: obj["Description"],
+        slug: obj["Slug"],
+      };
+    });
+
+    // Filter out rows with missing essential info
+    return products.filter(
+      (p) => p.affiliate_link && p.name && p.slug
+    );
+  } catch (err) {
+    console.error("Error fetching products:", err);
     return [];
   }
-
-  const csvText = await res.text();
-  const parsed = Papa.parse(csvText, { header: true, skipEmptyLines: true });
-
-  return parsed.data
-    .filter(row => row["Amazon Link"] && row["Product Name"] && row["Slug"])
-    .map(row => ({
-      affiliate_link: row["Amazon Link"],
-      name: row["Product Name"],
-      description: row["Description"],
-      slug: row["Slug"],
-    }));
 }

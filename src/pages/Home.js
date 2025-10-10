@@ -1,3 +1,4 @@
+// src/pages/Home.js
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { fetchProducts } from "../utils/sheetApi";
@@ -34,12 +35,12 @@ function Home() {
       {/* Header Section with Blue Background */}
       <header
         style={{
-          backgroundColor: "#1a73e8", // Blue background
+          backgroundColor: "#1a73e8",
           color: "#fff",
           padding: "4rem 2rem 2rem 2rem",
           textAlign: "center",
           borderRadius: "0 0 20px 20px",
-          marginBottom: "1.5rem", // gap below header
+          marginBottom: "1rem",
         }}
       >
         <h1 style={{ fontSize: "3rem", margin: "0.5rem 0" }}>Daily Amazon Deals</h1>
@@ -51,12 +52,12 @@ function Home() {
       {/* Paragraph Bubble */}
       <div
         style={{
-          backgroundColor: "#FFEB3B", // Yellow bubble
+          backgroundColor: "#FFEB3B",
           color: "#333",
           padding: "1.5rem",
           borderRadius: "20px",
           maxWidth: "650px",
-          margin: "0 auto 3rem auto",
+          margin: "1rem auto 3rem auto",
           boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
           fontSize: "1.1rem",
           lineHeight: "1.6",
@@ -110,45 +111,44 @@ function Home() {
 
       {/* Footer */}
       <footer
-  style={{
-    backgroundColor: "#f1f1f1",
-    padding: "2rem 1rem",
-    marginTop: "3rem",
-    textAlign: "center",
-    color: "#333",
-    borderTop: "1px solid #ddd",
-  }}
->
-  <div style={{ maxWidth: "900px", margin: "0 auto" }}>
-    <h3 style={{ marginBottom: "0.5rem", color: "#1a73e8" }}>Daily Amazon Deals</h3>
-    <p style={{ margin: "0.5rem 0", fontSize: "0.95rem", lineHeight: "1.5" }}>
-      Discover the best deals, hand-picked daily. We curate top-rated products to help you
-      shop smarter and save more every day.
-    </p>
+        style={{
+          backgroundColor: "#f1f1f1",
+          padding: "2rem 1rem",
+          marginTop: "3rem",
+          textAlign: "center",
+          color: "#333",
+          borderTop: "1px solid #ddd",
+        }}
+      >
+        <div style={{ maxWidth: "900px", margin: "0 auto" }}>
+          <h3 style={{ marginBottom: "0.5rem", color: "#1a73e8" }}>Daily Amazon Deals</h3>
+          <p style={{ margin: "0.5rem 0", fontSize: "0.95rem", lineHeight: "1.5" }}>
+            Discover the best deals, hand-picked daily. We curate top-rated products to help you
+            shop smarter and save more every day.
+          </p>
 
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        gap: "1.5rem",
-        marginTop: "1rem",
-        flexWrap: "wrap",
-      }}
-    >
-      <a href="#" style={{ color: "#555", textDecoration: "none" }}>About</a>
-      <a href="#" style={{ color: "#555", textDecoration: "none" }}>Privacy Policy</a>
-      <a href="#" style={{ color: "#555", textDecoration: "none" }}>Terms</a>
-      <a href="#" style={{ color: "#555", textDecoration: "none" }}>Contact</a>
-    </div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              gap: "1.5rem",
+              marginTop: "1rem",
+              flexWrap: "wrap",
+            }}
+          >
+            <a href="#" style={{ color: "#555", textDecoration: "none" }}>About</a>
+            <a href="#" style={{ color: "#555", textDecoration: "none" }}>Privacy Policy</a>
+            <a href="#" style={{ color: "#555", textDecoration: "none" }}>Terms</a>
+            <a href="#" style={{ color: "#555", textDecoration: "none" }}>Contact</a>
+          </div>
 
-    <hr style={{ margin: "1.5rem 0", border: "none", borderTop: "1px solid #ddd" }} />
+          <hr style={{ margin: "1.5rem 0", border: "none", borderTop: "1px solid #ddd" }} />
 
-    <p style={{ margin: "0.5rem 0", fontWeight: "bold", fontSize: "0.9rem" }}>
-      © 2025 Daily Amazon Deals. All rights reserved.
-    </p>
-  </div>
-</footer>
-
+          <p style={{ margin: "0.5rem 0", fontWeight: "bold", fontSize: "0.9rem" }}>
+            © 2025 Daily Amazon Deals. All rights reserved.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }
