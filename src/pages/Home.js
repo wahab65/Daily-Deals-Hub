@@ -1,4 +1,3 @@
-// src/pages/Home.js
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { fetchProducts } from "../utils/sheetApi";
@@ -17,7 +16,6 @@ function Home() {
 
   return (
     <div style={{ fontFamily: "Arial, sans-serif" }}>
-      {/* Top Navigation Bar */}
       <nav
         style={{
           display: "flex",
@@ -27,12 +25,11 @@ function Home() {
           marginBottom: "1.5rem",
         }}
       >
-        <a href="#" style={{ color: "#fff", textDecoration: "none", margin: "0 1.5rem" }}>Home</a>
-        <a href="#" style={{ color: "#fff", textDecoration: "none", margin: "0 1.5rem" }}>Products</a>
+        <Link to="/" style={{ color: "#fff", textDecoration: "none", margin: "0 1.5rem" }}>Home</Link>
+        <Link to="/products" style={{ color: "#fff", textDecoration: "none", margin: "0 1.5rem" }}>Products</Link>
         <a href="#" style={{ color: "#fff", textDecoration: "none", margin: "0 1.5rem" }}>Contact</a>
       </nav>
 
-      {/* Header Section with Blue Background */}
       <header
         style={{
           backgroundColor: "#1a73e8",
@@ -49,7 +46,6 @@ function Home() {
         </h3>
       </header>
 
-      {/* Paragraph Bubble */}
       <div
         style={{
           backgroundColor: "#FFEB3B",
@@ -70,7 +66,6 @@ function Home() {
         Browse our featured picks and discover something new that you'll love!
       </div>
 
-      {/* Featured Products */}
       <section style={{ maxWidth: "900px", margin: "0 auto", padding: "0 1rem 3rem 1rem" }}>
         <h2 style={{ fontSize: "2rem", marginBottom: "1rem", color: "#333", textAlign: "center" }}>
           Featured Products
@@ -107,48 +102,13 @@ function Home() {
             ))}
           </div>
         )}
-      </section>
 
-      {/* Footer */}
-      <footer
-        style={{
-          backgroundColor: "#f1f1f1",
-          padding: "2rem 1rem",
-          marginTop: "3rem",
-          textAlign: "center",
-          color: "#333",
-          borderTop: "1px solid #ddd",
-        }}
-      >
-        <div style={{ maxWidth: "900px", margin: "0 auto" }}>
-          <h3 style={{ marginBottom: "0.5rem", color: "#1a73e8" }}>Daily Amazon Deals</h3>
-          <p style={{ margin: "0.5rem 0", fontSize: "0.95rem", lineHeight: "1.5" }}>
-            Discover the best deals, hand-picked daily. We curate top-rated products to help you
-            shop smarter and save more every day.
-          </p>
-
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              gap: "1.5rem",
-              marginTop: "1rem",
-              flexWrap: "wrap",
-            }}
-          >
-            <a href="#" style={{ color: "#555", textDecoration: "none" }}>About</a>
-            <a href="#" style={{ color: "#555", textDecoration: "none" }}>Privacy Policy</a>
-            <a href="#" style={{ color: "#555", textDecoration: "none" }}>Terms</a>
-            <a href="#" style={{ color: "#555", textDecoration: "none" }}>Contact</a>
-          </div>
-
-          <hr style={{ margin: "1.5rem 0", border: "none", borderTop: "1px solid #ddd" }} />
-
-          <p style={{ margin: "0.5rem 0", fontWeight: "bold", fontSize: "0.9rem" }}>
-            © 2025 Daily Amazon Deals. All rights reserved.
-          </p>
+        <div style={{ textAlign: "center", marginTop: "2rem" }}>
+          <Link to="/products" style={{ color: "#1a73e8", fontWeight: "bold", fontSize: "1rem" }}>
+            View All Products →
+          </Link>
         </div>
-      </footer>
+      </section>
     </div>
   );
 }
