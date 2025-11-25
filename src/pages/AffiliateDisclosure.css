@@ -1,0 +1,39 @@
+.disclosure-page {
+  background: #f9fafb;
+  padding: 40px 20px;
+  min-height: 70vh;
+}
+
+.disclosure-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 35px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.disclosure-container h1 {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.disclosure-container h2 {
+  font-size: 22px;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.disclosure-container p {
+  font-size: 16px;
+  color: #374151;
+  line-height: 1.6;
+}
+
+.thank-you {
+  margin-top: 25px;
+  font-weight: 600;
+  color: #111827;
+}

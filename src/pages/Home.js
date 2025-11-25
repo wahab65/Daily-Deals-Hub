@@ -1,116 +1,140 @@
-import { useEffect, useState } from "react";
+
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { fetchProducts } from "../utils/sheetApi";
+import "./Home.css";
+import Navbar from "../components/Navbar";
 
-function Home() {
+export default function Home() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     fetchProducts()
       .then((data) => {
         const shuffled = data.sort(() => 0.5 - Math.random());
-        setProducts(shuffled.slice(0, 10));
+        setProducts(shuffled.slice(0, 8));
       })
-      .catch((err) => console.error("Error fetching products:", err));
+      .catch((err) => console.error("Error:", err));
   }, []);
 
   return (
-    <div style={{ fontFamily: "Arial, sans-serif" }}>
-      <nav
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          backgroundColor: "#333",
-          padding: "1rem 0",
-          marginBottom: "1.5rem",
-        }}
-      >
-        <Link to="/" style={{ color: "#fff", textDecoration: "none", margin: "0 1.5rem" }}>Home</Link>
-        <Link to="/products" style={{ color: "#fff", textDecoration: "none", margin: "0 1.5rem" }}>Products</Link>
-        <a href="#" style={{ color: "#fff", textDecoration: "none", margin: "0 1.5rem" }}>Contact</a>
-      </nav>
+    <div className="home-container">
 
-      <header
-        style={{
-          backgroundColor: "#1a73e8",
-          color: "#fff",
-          padding: "4rem 2rem 2rem 2rem",
-          textAlign: "center",
-          borderRadius: "0 0 20px 20px",
-          marginBottom: "1rem",
-        }}
-      >
-        <h1 style={{ fontSize: "3rem", margin: "0.5rem 0" }}>Daily Amazon Deals</h1>
-        <h3 style={{ fontSize: "1.5rem", margin: "0.5rem 0", fontWeight: "normal" }}>
-          We choose the best products for you
-        </h3>
-      </header>
+     <Navbar />   
+      {/* HERO INTRO SECTION */}
+      <section className="hero-section">
+        <div className="hero-content">
 
-      <div
-        style={{
-          backgroundColor: "#FFEB3B",
-          color: "#333",
-          padding: "1.5rem",
-          borderRadius: "20px",
-          maxWidth: "650px",
-          margin: "1rem auto 3rem auto",
-          boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
-          fontSize: "1.1rem",
-          lineHeight: "1.6",
-          textAlign: "center",
-        }}
-      >
-        At Daily Amazon Deals, we handpick the most amazing products from Amazon so you don't have to search endlessly. 
-        From trending gadgets and tech to lifestyle essentials, we focus on quality, value, and popularity. 
-        Our goal is to make your shopping experience effortless, so you can enjoy the best products every day. 
-        Browse our featured picks and discover something new that you'll love!
-      </div>
+          <h1 className="hero-title">HANDPICKED AMAZON DEALS</h1>
 
-      <section style={{ maxWidth: "900px", margin: "0 auto", padding: "0 1rem 3rem 1rem" }}>
-        <h2 style={{ fontSize: "2rem", marginBottom: "1rem", color: "#333", textAlign: "center" }}>
-          Featured Products
-        </h2>
+          {/* IMAGE BELOW HEADING */}
+          <img
+            src="/amazon-main.png"
+            alt="Amazon Deals Illustration"
+            className="hero-img-illustration"
+          />
 
-        {products.length === 0 ? (
-          <p style={{ textAlign: "center" }}>Loading products...</p>
-        ) : (
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
-              gap: "1.5rem",
-            }}
-          >
-            {products.map((p) => (
-              <Link
-                key={p.slug}
-                to={`/products/${p.slug}`}
-                style={{
-                  display: "block",
-                  padding: "1rem",
-                  border: "1px solid #ddd",
-                  borderRadius: "10px",
-                  textDecoration: "none",
-                  color: "#333",
-                  backgroundColor: "#f9f9f9",
-                  boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
-                  transition: "transform 0.2s, box-shadow 0.2s",
-                }}
-              >
-                <h3 style={{ margin: "0", fontSize: "1.2rem" }}>{p.name}</h3>
-              </Link>
-            ))}
-          </div>
-        )}
+          <p className="hero-subtitle">Find the Right Products, All in One Place</p>
 
-        <div style={{ textAlign: "center", marginTop: "2rem" }}>
-          <Link to="/products" style={{ color: "#1a73e8", fontWeight: "bold", fontSize: "1rem" }}>
-            View All Products →
-          </Link>
+          <p className="hero-description">
+            We find the best Amazon products, compare reviews, and only feature items
+            that deliver real value — so you don’t waste time scrolling. Explore our
+            curated categories and discover items worth your money.
+          </p>
+
+          <a className="shop-btn">
+            SHOP NOW
+          </a>
         </div>
       </section>
+
+
+
+      {/* CATEGORIES SECTION */}
+     <section className="categories-section">
+  <h2>Shop by Category</h2>
+
+  <div className="categories-grid">
+
+    <Link to="/category/tech" className="category-card">
+      <div className="category-img-wrap">
+        <img src="/images/tech.jpg" alt="Tech" />
+      </div>
+      <p>Tech</p>
+    </Link>
+
+    <Link to="/category/beauty" className="category-card">
+      <div className="category-img-wrap">
+        <img src="/images/beauty.jpg" alt="Beauty" />
+      </div>
+      <p>Beauty</p>
+    </Link>
+
+    <Link to="/category/kitchen" className="category-card">
+      <div className="category-img-wrap">
+        <img src="/images/kitchen.jpg" alt="Kitchen" />
+      </div>
+      <p>Kitchen</p>
+    </Link>
+
+    <Link to="/category/baby" className="category-card">
+      <div className="category-img-wrap">
+        <img src="/images/baby.jpg" alt="Baby & Kids" />
+      </div>
+      <p>Baby & Kids</p>
+    </Link>
+
+    <Link to="/category/health" className="category-card">
+      <div className="category-img-wrap">
+        <img src="/images/health.jpg" alt="Health" />
+      </div>
+      <p>Health & Lifestyle</p>
+    </Link>
+
+  </div>
+</section>
+
+{/* TOP PICKS SECTION */}
+<section className="toppicks-section">
+  <h2>Top Picks</h2>
+
+  <div className="products-grid">
+    {products.length === 0 ? (
+      <p>Loading top picks...</p>
+    ) : (
+      products.slice(0, 15).map((p) => (
+        <div key={p.slug} className="product-card">
+
+          <Link to={`/products/${p.slug}`} className="product-card-top">
+            {p.imageUrl && (
+              <div className="product-image-wrapper">
+                <img
+                  src={p.imageUrl}
+                  alt={p.name}
+                  className="product-image"
+                />
+              </div>
+            )}
+            <h3 className="product-card-title">{p.name}</h3>
+          </Link>
+
+          <a
+            href={p.affiliate_link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="buy-btn-home"
+          >
+            Buy on Amazon
+          </a>
+        </div>
+      ))
+    )}
+  </div>
+
+</section>
+
+
+
     </div>
   );
 }
-
-export default Home;
