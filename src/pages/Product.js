@@ -165,14 +165,23 @@ export default function Product() {
 
             <h1 className="product-title">{product.name}</h1>
 
-           <a
-  href={product.affiliate_link}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="flashy-buy-btn"
->
-  CLICK HERE TO BUY ON AMAZON
-</a>
+            <a
+              href={product.affiliate_link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flashy-buy-btn"
+            >
+              CLICK HERE TO BUY ON AMAZON
+            </a>
+            <br></br>
+
+            <div className="affiliate-disclaimer-box">
+              <p>
+                <span className="icon">ℹ️</span>
+                This post contains affiliate links. If you click through and make a purchase,
+                I may earn a commission at no additional cost to you.
+              </p>
+            </div>
 
 
 

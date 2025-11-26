@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <div className="home-container">
 
-     <Navbar />   
+      <Navbar />
       {/* HERO INTRO SECTION */}
       <section className="hero-section">
         <div className="hero-content">
@@ -51,87 +51,90 @@ export default function Home() {
 
 
       {/* CATEGORIES SECTION */}
-     <section className="categories-section">
-  <h2>Shop by Category</h2>
+      <section className="categories-section">
+        <h2>Shop by Category</h2>
 
-  <div className="categories-grid">
+        <div className="categories-grid">
 
-    <Link to="/category/tech" className="category-card">
-      <div className="category-img-wrap">
-        <img src="/images/tech.jpg" alt="Tech" />
-      </div>
-      <p>Tech</p>
-    </Link>
-
-    <Link to="/category/beauty" className="category-card">
-      <div className="category-img-wrap">
-        <img src="/images/beauty.jpg" alt="Beauty" />
-      </div>
-      <p>Beauty</p>
-    </Link>
-
-    <Link to="/category/kitchen" className="category-card">
-      <div className="category-img-wrap">
-        <img src="/images/kitchen.jpg" alt="Kitchen" />
-      </div>
-      <p>Kitchen</p>
-    </Link>
-
-    <Link to="/category/baby" className="category-card">
-      <div className="category-img-wrap">
-        <img src="/images/baby.jpg" alt="Baby & Kids" />
-      </div>
-      <p>Baby & Kids</p>
-    </Link>
-
-    <Link to="/category/health" className="category-card">
-      <div className="category-img-wrap">
-        <img src="/images/health.jpg" alt="Health" />
-      </div>
-      <p>Health & Lifestyle</p>
-    </Link>
-
-  </div>
-</section>
-
-{/* TOP PICKS SECTION */}
-<section className="toppicks-section">
-  <h2>Top Picks</h2>
-
-  <div className="products-grid">
-    {products.length === 0 ? (
-      <p>Loading top picks...</p>
-    ) : (
-      products.slice(0, 15).map((p) => (
-        <div key={p.slug} className="product-card">
-
-          <Link to={`/products/${p.slug}`} className="product-card-top">
-            {p.imageUrl && (
-              <div className="product-image-wrapper">
-                <img
-                  src={p.imageUrl}
-                  alt={p.name}
-                  className="product-image"
-                />
-              </div>
-            )}
-            <h3 className="product-card-title">{p.name}</h3>
+          <Link to="/category/tech" className="category-card">
+            <div className="category-img-wrap">
+              <img src="/images/tech.jpg" alt="Tech" />
+            </div>
+            <p>Tech</p>
           </Link>
 
-          <a
-            href={p.affiliate_link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="buy-btn-home"
-          >
-            Buy on Amazon
-          </a>
-        </div>
-      ))
-    )}
-  </div>
+          <Link to="/category/beauty" className="category-card">
+            <div className="category-img-wrap">
+              <img src="/images/beauty.jpg" alt="Beauty" />
+            </div>
+            <p>Beauty</p>
+          </Link>
 
-</section>
+          <Link to="/category/kitchen" className="category-card">
+            <div className="category-img-wrap">
+              <img src="/images/kitchen.jpg" alt="Kitchen" />
+            </div>
+            <p>Kitchen</p>
+          </Link>
+
+          <Link to="/category/baby" className="category-card">
+            <div className="category-img-wrap">
+              <img src="/images/baby.jpg" alt="Baby & Kids" />
+            </div>
+            <p>Baby & Kids</p>
+          </Link>
+
+          <Link to="/category/health" className="category-card">
+            <div className="category-img-wrap">
+              <img src="/images/health.jpg" alt="Health" />
+            </div>
+            <p>Health & Lifestyle</p>
+          </Link>
+
+        </div>
+      </section>
+
+      {/* TOP PICKS SECTION */}
+      <section className="toppicks-section">
+        <h2>Top Picks</h2>
+
+        <div className="products-grid">
+          {products.length === 0 ? (
+            <p>Loading top picks...</p>
+          ) : (
+            products.slice(0, 15).map((p) => (
+              <div key={p.slug} className="product-card">
+
+                <Link to={`/products/${p.slug}`} className="product-card-top">
+                  {p.imageUrl && (
+                    <div className="product-image-wrapper">
+                      <img
+                        src={p.imageUrl}
+                        alt={p.name}
+                        className="product-image"
+                      />
+                    </div>
+                  )}
+                  <h3 className="product-card-title">{p.name}</h3>
+                </Link>
+
+                <a
+                  href={p.affiliate_link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="buy-btn-home"
+                >
+                  Buy on Amazon
+                </a>
+                <p className="home-card-disclaimer">
+  This post contains affiliate links.
+</p>
+              </div>
+            ))
+          )}
+        </div>
+
+      </section>
 
 
 

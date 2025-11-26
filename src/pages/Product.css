@@ -124,6 +124,29 @@
     box-shadow: 0 4px 14px rgba(255, 204, 0, 0.7);
   }
 }
+.affiliate-disclaimer-box {
+  margin-top: 12px;
+  padding: 10px 12px;
+  background: #f9fafb;           /* very light gray */
+  border-left: 3px solid #fbbf24; /* yellow accent */
+  border-radius: 6px;
+  max-width: 430px;
+}
+
+.affiliate-disclaimer-box p {
+  font-size: 12px;
+  font-style: italic;            /* makes it look like a note */
+  color: #6b7280;                /* soft gray */
+  line-height: 1.5;
+  margin: 0;
+}
+
+.affiliate-disclaimer-box .icon {
+  margin-right: 6px;
+  font-size: 13px;
+  opacity: 0.8;
+  vertical-align: middle;
+}
 
 /* Description text */
 .product-description {

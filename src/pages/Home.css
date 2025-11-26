@@ -1,64 +1,4 @@
-/* DISCLOSURE BAR */
-.disclosure-bar {
-  background: #dff9fb;
-  padding: 10px;
-  text-align: center;
-  font-size: 14px;
-  color: #333;
-}
-.learn-more {
-  color: #0077ff;
-  cursor: pointer;
-}
 
-/* NAVBAR */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 25px;
-  background: white;
-  border-bottom: 1px solid #eee;
-}
-
-.logo {
-  width: 70px;
-}
-
-.nav-links {
-  display: flex;
-  gap: 30px;
-  list-style: none;
-  font-size: 15px;
-}
-.nav-links li {
-  font-weight: 700;   /* bold */
-  cursor: pointer;
-}
-.nav-links a,
-.nav-links a:visited {
-  color: #000 !important;
-  text-decoration: none;
-}
-
-.nav-links a:hover {
-  color: #20c997;   /* or any hover color you want */
-}
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.search-box {
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-}
-
-.profile-icon {
-  font-size: 20px;
-}
 
 /* HERO SECTION (no overlap) */
 .hero-section {
@@ -111,6 +51,15 @@
 }
 
 /* (keep your intro-section styles deleted, since we merged intro into hero) */
+
+/* disclaimer for card  */
+.home-card-disclaimer {
+  margin-top: 6px;
+  font-size: 11px;
+  font-style: italic;
+  color: #9ca3af;    /* soft light gray */
+  text-align: center;
+}
 
 
 /* INTRO SECTION */
